@@ -56,7 +56,6 @@ class PersonControllerTest {
                         .param("middleName", "Abu")
                         .param("lastName", "Fikri")
                         .param("email", "fikri@example.com")
-                        .param("phone", "0800000001")
                         .param("address.street", "Jalan Setia Budi")
                         .param("address.city", "Makasar")
                         .param("address.country", "Indonesia")
@@ -67,7 +66,7 @@ class PersonControllerTest {
                         .param("socialMedias[0].location", "facebook.com/WiduriFikri")
         ).andExpectAll(
                 status().isBadRequest(),
-                content().string(Matchers.containsString("Validation error :"))
+                content().string(Matchers.containsString("You send invalid data"))
         );
     }
 }
